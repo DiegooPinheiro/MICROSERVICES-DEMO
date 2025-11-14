@@ -35,7 +35,7 @@ exports.updateUser = (req, res) => {
     if (name) user.name = name;
     if (email) user.email = email;
     res.json(user);
-},
+};
 //DELETE /users/:id - Delete user
 exports.deleteUser = (req, res) => {
     const index = users.findIndex(u => u.id === req.params.id);

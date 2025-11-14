@@ -1,5 +1,5 @@
 const {v4: uuidv4} = require('uuid');
-const users = [];
+const products = [];
 
 
 //POST /products/ - Get all products (for demonstration, usually would be GET)
