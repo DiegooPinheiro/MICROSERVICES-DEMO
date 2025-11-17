@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.send('Users Service is running');
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Users Service is running on port ${PORT}`);
 });
