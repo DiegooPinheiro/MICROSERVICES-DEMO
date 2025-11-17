@@ -5,8 +5,7 @@ import routes from './routes.js';
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json());
-app.use('/', routes);
+app.use('/products', routes);
 
 app.get('/', (req, res) => {
   res.send('Products Service is running');
