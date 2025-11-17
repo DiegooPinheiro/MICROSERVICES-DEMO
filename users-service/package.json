@@ -2,6 +2,7 @@
   "name": "user-service",
   "version": "1.0.0",
   "description": "A simple user management service",
+  "type": "module",
   "main": "node src/index.js",
 
   "scripts": {
@@ -9,8 +10,8 @@
     "dev": "nodemon src/index.js"
   },
  
+  "type": "module",
   "dependencies": {
-    "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "uuid": "^13.0.0"

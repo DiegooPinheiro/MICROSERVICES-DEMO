@@ -1,13 +1,13 @@
-const {v4: uuidv4} = require('uuid');
+import { v4 as uuidv4 } from 'uuid';
 const products = [];
 
 
 //POST /products/ - Get all products (for demonstration, usually would be GET)
-exports.getAllProducts = (req, res) => {
+export const getAllProducts = (req, res) => {
     res.json(products );
 };
 //POST /products/ - Get all products by ID (for demonstration, usually would be GET)
-exports.createProductById = (req, res) => {
+export const createProductById = (req, res) => {
     const { name, price } = req.body;
     if (!name || !price) return res.status(400).json({ error: 'Name and price are required' });
 
@@ -17,19 +17,19 @@ exports.createProductById = (req, res) => {
 };
 
 //GET /products/ - Get all products
-exports.listProducts = (req, res) => {
+export const listProducts = (req, res) => {
     res.json(products);
 };
 
 //GET /products/:id - Get product  by ID
-exports.getProductById = (req, res) => {
+export const getProductById = (req, res) => {
     const product = products.find(p => p.id === req.params.id);
     if (!product) return res.status(404).json({ error: 'Product not found' });
     res.json(product);
 };
 
 //PUT /products/:id - Update product
-exports.updateProduct = (req, res) => {
+export const updateProduct = (req, res) => {
     const product = products.find(p => p.id === req.params.id);
     if (!product) return res.status(404).json({ error: 'Product not found' });
 
@@ -40,7 +40,7 @@ exports.updateProduct = (req, res) => {
     if (price) product.price = price;
     res.json(product);
 };
-exports.deleteProduct = (req, res) => {
+export const deleteProduct = (req, res) => {
     const index = products.findIndex(p => p.id === req.params.id);
     if (index === -1) return res.status(404).json({ error: 'Product not found' });
     products.splice(index, 1);

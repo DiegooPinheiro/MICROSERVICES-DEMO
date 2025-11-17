@@ -1,8 +1,9 @@
-const express = require('express');
-const morgan = require('morgan');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const express = require('express'); // Express framework
+const morgan = require('morgan'); // HTTP request logger middleware
+const { createProxyMiddleware } = require('http-proxy-middleware'); // Proxy middleware
 
 const app = express();
+app.use(morgan('dev'));
 
 // Middleware
 app.use(morgan('combined'));
@@ -13,10 +14,10 @@ app.use(express.json());
 app.use(
   '/api/users',
   createProxyMiddleware({
-    target: 'http://localhost:3001',
+    target: 'http://users-service:3001',
     changeOrigin: true,
     pathRewrite: {
-      '^/api/users': '/users',
+      '^/api/users': '',
     },
     logLevel: 'info',
   })
@@ -26,10 +27,10 @@ app.use(
 app.use(
   '/api/products',
   createProxyMiddleware({
-    target: 'http://localhost:3002',
+    target: 'http://products-service:3002',
     changeOrigin: true,
     pathRewrite: {
-      '^/api/products': '/products',
+      '^/api/products': '',
     },
     logLevel: 'info',
   })
