@@ -8,7 +8,7 @@ export const getAllUsers = (req, res) => {
 };
 //POST /users/ - Get all users (for demonstration, usually would be GET)
 export const createUserById = (req, res) => {
-    const { name, email } = req.body;
+    const { name, email } = req.body || {};
     if (!name || !email) return res.status(400).json({ error: 'Name and email are required' });
 
     const user = { id: uuidv4(), name, email, createdAt: new Date().toDateString() };
