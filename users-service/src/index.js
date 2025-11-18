@@ -1,3 +1,4 @@
+// users-service/src/index.js
 import express from 'express';
 import cors from 'cors';
 import routes from './routes.js';

@@ -1,11 +1,20 @@
+// users-service/src/routes.js
 import express from 'express';
-const router = express.Router();
-import { createUserById, getAllUsers, getUserById, updateUser, deleteUser } from './controllers/usersController.js';
+import {
+  listUsers,
+  createUser,
+  getUserById,
+  updateUser,
+  deleteUser
+} from './controllers/usersController.js';
 
-router.post('/', createUserById);
-router.get('/', getAllUsers);
-router.get('/:id', getUserById);
-router.put('/:id', updateUser);
-router.delete('/:id', deleteUser);
+const router = express.Router();
+
+// CRUD Users
+router.get('/', listUsers);        // List all users
+router.post('/', createUser);      // Create user
+router.get('/:id', getUserById);   // Get user by ID
+router.put('/:id', updateUser);    // Update user
+router.delete('/:id', deleteUser); // Delete user
 
 export default router;

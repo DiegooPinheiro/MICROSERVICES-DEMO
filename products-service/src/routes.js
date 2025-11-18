@@ -1,11 +1,19 @@
+// products-service/src/routes.js
 import express from 'express';
-const router = express.Router();
-import { createProductById, listProducts, getProductById, updateProduct, deleteProduct } from './controllers/productsController.js';
+import {
+  listProducts,
+  createProduct,
+  getProductById,
+  updateProduct,
+  deleteProduct
+} from './controllers/productsController.js';
 
-router.post('/', createProductById);
-router.get('/', listProducts);
-router.get('/:id', getProductById);
-router.put('/:id', updateProduct);
-router.delete('/:id', deleteProduct);
+const router = express.Router();
+
+router.get('/', listProducts);        // GET all products
+router.post('/', createProduct);      // CREATE product
+router.get('/:id', getProductById);   // GET product by ID
+router.put('/:id', updateProduct);    // UPDATE product
+router.delete('/:id', deleteProduct); // DELETE product
 
 export default router;
